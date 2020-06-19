@@ -5,6 +5,7 @@ g_browserLibrary = "UnifiedServiceDesk_IE";   // Set to one of "UnifiedServiceDe
 g_usdConfigPath = "ConfigInflectraIE.xlsx";
 
 g_recordUrls = false;
+//g_uiaNameFromControlType = true;
 
 if (!g_recording)
 {
@@ -91,6 +92,17 @@ function USDClose()
 		SeS('G_YesClose').DoClick();
 	}
 }
+
+/**
+ * Sets text into a rich editor.
+ */
+function USDSetRichText(/**objectId*/ editor, /**string*/ text)
+{
+	var obj = SeS(editor);
+	Navigator.ExecJS('arguments[0].innerHTML = "' + text + '"', obj);
+	Tester.Assert("Set text into " + editor, true);
+}
+
 
 function zCloseWindowsByTitle(regexTitle)
 {
