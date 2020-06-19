@@ -25,8 +25,20 @@
     <IsFilterGroup>false</IsFilterGroup>
     <FilterWildcard>*.*</FilterWildcard>
     <FilterPath />
-    <Groups />
+    <Groups>
+      <TestGroup>
+        <Name>Reports</Name>
+        <IsFilterGroup>true</IsFilterGroup>
+        <FilterWildcard>*.trp</FilterWildcard>
+        <FilterPath>Reports</FilterPath>
+        <Groups />
+        <TestFiles />
+      </TestGroup>
+    </Groups>
     <TestFiles>
+      <TestFile>
+        <Path>Config.xlsx</Path>
+      </TestFile>
       <TestFile>
         <Path>Data.xlsx</Path>
       </TestFile>
@@ -52,13 +64,16 @@
   </TestFiles>
   <CustomStrings />
   <TestParams>
-    <TestParam name="Browser" variable="g_browserLibrary" defaultValue="Chrome HTML" description="Please, specify browser type to use" output="false" ask="false">
+    <TestParam name="Browser" variable="g_browserLibrary" defaultValue="Selenium - Chrome" description="Please, specify browser type to use" output="false" ask="false">
       <PossibleValues />
     </TestParam>
     <TestParam name="Record Title" variable="g_rWnd" defaultValue="regex:.*" description="Application Title to Record" output="false" ask="false">
       <PossibleValues />
     </TestParam>
     <TestParam name="RVL Script" variable="g_rvlScriptPath" defaultValue="Main.rvl.xlsx" description="Main RVL Script to execute" output="false" ask="false">
+      <PossibleValues />
+    </TestParam>
+    <TestParam name="Detect Web Plugins" variable="g_webPluginsAutoDetect" defaultValue="False" description="Enable web plugins auto detection" output="false" ask="false">
       <PossibleValues />
     </TestParam>
   </TestParams>

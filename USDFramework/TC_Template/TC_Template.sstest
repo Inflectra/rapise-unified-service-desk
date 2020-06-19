@@ -25,19 +25,28 @@
     <IsFilterGroup>false</IsFilterGroup>
     <FilterWildcard>*.*</FilterWildcard>
     <FilterPath />
-    <Groups />
+    <Groups>
+      <TestGroup>
+        <Name>Reports</Name>
+        <IsFilterGroup>true</IsFilterGroup>
+        <FilterWildcard>*.trp</FilterWildcard>
+        <FilterPath>Reports</FilterPath>
+        <Groups />
+        <TestFiles />
+      </TestGroup>
+    </Groups>
     <TestFiles>
-      <TestFile>
-        <Path>Main.rvl.xlsx</Path>
-      </TestFile>
-      <TestFile>
-        <Path>..\User.js</Path>
-      </TestFile>
       <TestFile>
         <Path>Main.js</Path>
       </TestFile>
       <TestFile>
+        <Path>Main.rvl.xlsx</Path>
+      </TestFile>
+      <TestFile>
         <Path>Objects.js</Path>
+      </TestFile>
+      <TestFile>
+        <Path>..\User.js</Path>
       </TestFile>
     </TestFiles>
   </TestFiles>
