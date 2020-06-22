@@ -62,7 +62,7 @@ var saved_script_objects={
 				}
 			}
 		],
-		"window_class": "HwndWrapper[UnifiedServiceDesk.exe;;ea642139-24f3-4ef4-aff7-7a1a04160764]",
+		"window_class": "HwndWrapper[UnifiedServiceDesk.exe;;54d5e918-323e-4fee-b20e-cd5561f5243c]",
 		"object_text": "param:object_name",
 		"object_role": "ROLE_SYSTEM_CLIENT",
 		"object_class": "Internet Explorer_Server",
@@ -73,7 +73,7 @@ var saved_script_objects={
 		"ignore_object_name": true,
 		"object_library": "Internet Explorer HTML",
 		"window_name": "Case: Case: Delivery never arrived - Microsoft Dynamics 365",
-		"xpath": "//div[@role='button' and @id='create_note_placeholder']",
+		"xpath": "//div[@id=\"create_module_placeholder\"]",
 		"title": "Case: Case: Delivery never arrived - Microsoft Dynamics 365",
 		"url": ""
 	},
@@ -123,7 +123,7 @@ var saved_script_objects={
 		"ignore_object_name": true,
 		"object_library": "Internet Explorer HTML",
 		"window_name": "Case: Case: Delivery never arrived - Microsoft Dynamics 365",
-		"xpath": "//input[@type='text' and @id='create_note_medium_title']",
+		"xpath": "//input[@id=\"create_note_medium_title\"]",
 		"title": "Case: Case: Delivery never arrived - Microsoft Dynamics 365",
 		"url": ""
 	},
@@ -228,6 +228,32 @@ var saved_script_objects={
 		"object_library": "Internet Explorer HTML",
 		"window_name": "Case: Case: Delivery never arrived - Microsoft Dynamics 365",
 		"xpath": "//button[@type='button' and @data-id='confirmButton' and @id='confirmButton']",
+		"title": "Case: Case: Delivery never arrived - Microsoft Dynamics 365",
+		"url": ""
+	},
+	"LastNote": {
+		"locations": [
+			{
+				"locator_name": "HTML",
+				"location": {
+					"xpath": "param:xpath",
+					"url": "param:url",
+					"title": "param:title"
+				}
+			}
+		],
+		"window_class": "HwndWrapper[UnifiedServiceDesk.exe;;f234fd1a-6316-45ac-b158-8c18ca3c3020]",
+		"object_text": "",
+		"object_role": "ROLE_SYSTEM_CLIENT",
+		"object_class": "Internet Explorer_Server",
+		"version": 0,
+		"object_type": "HTMLObject",
+		"object_flavor": "Button",
+		"object_name": "Delete note",
+		"ignore_object_name": true,
+		"object_library": "Internet Explorer HTML",
+		"window_name": "Case: Case: Delivery never arrived - Microsoft Dynamics 365",
+		"xpath": "//div[@data-lp-id='MscrmControls.TimelineWallControl.TimelineWall|notescontrol|incident-record-0']",
 		"title": "Case: Case: Delivery never arrived - Microsoft Dynamics 365",
 		"url": ""
 	}

@@ -1,11 +1,31 @@
 //Put your custom functions and variables in this file
 
-g_browserLibrary = "UnifiedServiceDesk_IE";   // Set to one of "UnifiedServiceDesk_IE" or "Selenium - Chrome"
+//var g_usdBrowser = "IE"; // Set to "IE" or "Chrome"
+var g_usdBrowser = "Chrome";
 
-g_usdConfigPath = "ConfigInflectraIE.xlsx";
+if (g_usdBrowser == "IE")
+{
+	g_browserLibrary = "UnifiedServiceDesk_IE";
+	g_usdConfigPath = "ConfigInflectraIE.xlsx";
+}
+else
+{
+	g_browserLibrary = "Selenium - Chrome";
+	g_usdConfigPath = "ConfigInflectraChrome.xlsx";
+}
 
 g_recordUrls = false;
-//g_uiaNameFromControlType = true;
+
+
+function SetSeleniumDriverExecutableFolder()
+{
+	if (IsSeleniumTest())
+	{
+		var WshShell = new ActiveXObject("WScript.Shell");
+		var _processEnv = WshShell.Environment("PROCESS");
+		_processEnv("PATH") = _processEnv("PATH") + ";" + Global.GetFullPath('Profiles');
+	}
+}
 
 if (!g_recording)
 {
@@ -13,6 +33,8 @@ if (!g_recording)
 	{
 		Global.DoLoadObjects('%WORKDIR%/Objects.js');
 		Navigator.EnsureVisibleVerticalAlignment = "center";
+		SetSeleniumDriverExecutableFolder();
+		//WebDriver.CreateDriver();
 	}
 }
 else
@@ -20,7 +42,17 @@ else
 	TestPrepare = function()
 	{
 		g_UIAutomationWrapper.DeepPointTracking(true);
+		if (IsSeleniumTest())
+		{
+			SetSeleniumDriverExecutableFolder()
+			WebDriver.CreateDriver();
+		}
 	}
+}
+
+function IsSeleniumTest()
+{
+    return (typeof(WebDriver) != "undefined" && WebDriver);
 }
 
 function USDLaunch()
@@ -135,4 +167,71 @@ function zWaitForMainUSDWindow()
 		count--;
 		Global.DoSleep(5000);
 	}
+}
+
+function USDSelectWindow(/**string|number*/ urlOrTitleOrIndex, /**number*/ timeout)
+{
+    if (!IsSeleniumTest())
+    {
+        return;
+    }
+    
+    timeout = timeout || 30000;
+    
+    function _SelectWindow()
+    {
+        var handles = WebDriver.GetWindowHandles();
+        if (handles && handles.length)
+        {
+            if (typeof(urlOrTitleorIndex) == "number")
+            {
+                var index = parseInt(urlOrTitleOrIndex);
+                if (index < handles.length)
+                {
+                    var handle = handles[index];
+                    WebDriver.SwitchToWindow(handle);
+                    return true;
+                }
+                else
+                {
+                    if (l3) Log3("There is no Chrome window with index: " + index);
+                }
+            }
+            else
+            {
+                var urlOrTitle = ("" + urlOrTitleOrIndex).toLowerCase();
+                for(var i = 0; i < handles.length; i++)
+                {
+                    var handle = handles[i];
+                    WebDriver.SwitchToWindow(handle);
+                    var url = ("" + WebDriver.GetUrl()).toLowerCase();
+                    var title = ("" + WebDriver.GetTitle()).toLowerCase();
+                    if (url.indexOf(urlOrTitle) != -1 || title.indexOf(urlOrTitle) != -1)
+                    {
+                        return true;
+                    }
+                }
+                
+                if (l3) Log3("There is no Chrome window with title/url matching: " + urlOrTitleOrIndex);
+            }
+        }
+        return false;
+    }
+    
+    var _start = new Date();
+    do
+    {
+        var _res = _SelectWindow();
+        if (_res)
+        {
+            return;
+        }
+        else
+        {
+            Global.DoSleep(1000);
+        }
+    }
+    while ((new Date() - _start) < timeout);
+    
+    Tester.Assert("Chrome window not found: " + urlOrTitleorIndex, false);
 }
