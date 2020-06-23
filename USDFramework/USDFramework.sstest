@@ -58,16 +58,22 @@
         <Path>TC_AddNoteToCase\TC_AddNoteToCase.sstest</Path>
       </TestFile>
       <TestFile>
+        <Path>TC_CreateNewCase\TC_CreateNewCase.sstest</Path>
+      </TestFile>
+      <TestFile>
         <Path>TC_Template\TC_Template.sstest</Path>
       </TestFile>
       <TestFile>
         <Path>User.js</Path>
       </TestFile>
+      <TestFile>
+        <Path>UserCrm.js</Path>
+      </TestFile>
     </TestFiles>
   </TestFiles>
   <CustomStrings />
   <TestParams>
-    <TestParam name="Browser" variable="g_browserLibrary" defaultValue="Selenium - Chrome" description="Please, specify browser type to use" output="false" ask="false">
+    <TestParam name="Browser" variable="g_browserLibrary" defaultValue="Chrome HTML" description="Please, specify browser type to use" output="false" ask="false">
       <PossibleValues />
     </TestParam>
     <TestParam name="Record Title" variable="g_rWnd" defaultValue="regex:.*" description="Application Title to Record" output="false" ask="false">

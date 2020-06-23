@@ -37,6 +37,12 @@
     </Groups>
     <TestFiles>
       <TestFile>
+        <Path>..\Data.xlsx</Path>
+      </TestFile>
+      <TestFile>
+        <Path>..\Dropdowns.xlsx</Path>
+      </TestFile>
+      <TestFile>
         <Path>Main.js</Path>
       </TestFile>
       <TestFile>
@@ -47,6 +53,9 @@
       </TestFile>
       <TestFile>
         <Path>..\User.js</Path>
+      </TestFile>
+      <TestFile>
+        <Path>..\UserCrm.js</Path>
       </TestFile>
     </TestFiles>
   </TestFiles>

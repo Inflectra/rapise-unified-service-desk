@@ -1,39 +1,23 @@
 //Put your custom functions and variables in this file
 
-//var g_usdBrowser = "IE"; // Set to "IE" or "Chrome"
-var g_usdBrowser = "Chrome";
-
-if (g_usdBrowser == "IE")
+if (typeof(g_usdInstance) == "undefined")
 {
-	g_browserLibrary = "UnifiedServiceDesk_IE";
-	g_usdConfigPath = "ConfigInflectraIE.xlsx";
-}
-else
-{
-	g_browserLibrary = "Selenium - Chrome";
-	g_usdConfigPath = "ConfigInflectraChrome.xlsx";
+	g_usdInstance = "WebClientIE";
+	//g_usdInstance = "WebClientChrome";
+	//g_usdInstance = "ServiceClientIE";
+	//g_usdInstance = "ChromeStandalone";
 }
 
-g_recordUrls = false;
-
-
-function SetSeleniumDriverExecutableFolder()
-{
-	if (IsSeleniumTest())
-	{
-		var WshShell = new ActiveXObject("WScript.Shell");
-		var _processEnv = WshShell.Environment("PROCESS");
-		_processEnv("PATH") = _processEnv("PATH") + ";" + Global.GetFullPath('Profiles');
-	}
-}
+zConfig();
 
 if (!g_recording)
 {
 	TestInit = function()
 	{
 		Global.DoLoadObjects('%WORKDIR%/Objects.js');
+		Global.DoLoadObjects('%WORKDIR%/ObjectsCrm.js');
 		Navigator.EnsureVisibleVerticalAlignment = "center";
-		SetSeleniumDriverExecutableFolder();
+		zSetSeleniumDriverExecutableFolder();
 		//WebDriver.CreateDriver();
 	}
 }
@@ -41,12 +25,38 @@ else
 {
 	TestPrepare = function()
 	{
+		g_recordUrls = false;
 		g_UIAutomationWrapper.DeepPointTracking(true);
 		if (IsSeleniumTest())
 		{
-			SetSeleniumDriverExecutableFolder()
+			zSetSeleniumDriverExecutableFolder()
 			WebDriver.CreateDriver();
 		}
+	}
+}
+
+function zConfig()
+{
+	switch(g_usdInstance)
+	{
+		case "WebClientIE":
+			g_browserLibrary = "UnifiedServiceDesk_IE";
+			g_usdConfigPath = "ConfigInflectraIE.xlsx";
+			break;
+		case "WebClientChrome":
+			g_browserLibrary = "Selenium - Chrome";
+			g_usdConfigPath = "ConfigInflectraChrome.xlsx";	
+			break;
+		case "ServiceClientIE":
+			g_browserLibrary = "UnifiedServiceDesk_IE";
+			g_usdConfigPath = "ConfigInflectraService.xlsx";
+			break;
+		case "ChromeStandalone":
+			g_browserLibrary = "ChromeWeb";
+			break;
+		default:
+			g_browserLibrary = "UnifiedServiceDesk_IE";
+			g_usdConfigPath = "ConfigInflectraIE.xlsx";
 	}
 }
 
@@ -135,40 +145,6 @@ function USDSetRichText(/**objectId*/ editor, /**string*/ text)
 	Tester.Assert("Set text into " + editor, true);
 }
 
-
-function zCloseWindowsByTitle(regexTitle)
-{
-	var arrFoundWindows = g_util.FindWindows(regexTitle, 'regex:.*');
-	
-	for( var i=0;i<arrFoundWindows.length; i++)
-	{
-		var wnd = /**HWNDWrapper*/ arrFoundWindows[i];
-		
-		Log("Closing: "+wnd.Text);
-		
-		// This will close main window of the window's process.
-		wnd.CloseMainWindow();
-		
-		// Alternative way would be bringing window to front and sending Alt+F4 to it.
-	}
-}
-
-function zWaitForMainUSDWindow()
-{
-	var count = 60;
-	var found = false;
-	while(!found && count > 0)
-	{
-		var windows = g_util.FindWindows("regex:Unified Service Desk.*", "regex:HwndWrapper.*");
-		if (windows.length > 0)
-		{
-			found = true;
-		}
-		count--;
-		Global.DoSleep(5000);
-	}
-}
-
 function USDSelectWindow(/**string|number*/ urlOrTitleOrIndex, /**number*/ timeout)
 {
     if (!IsSeleniumTest())
@@ -235,3 +211,48 @@ function USDSelectWindow(/**string|number*/ urlOrTitleOrIndex, /**number*/ timeo
     
     Tester.Assert("Chrome window not found: " + urlOrTitleorIndex, false);
 }
+
+function zCloseWindowsByTitle(regexTitle)
+{
+	var arrFoundWindows = g_util.FindWindows(regexTitle, 'regex:.*');
+	
+	for( var i=0;i<arrFoundWindows.length; i++)
+	{
+		var wnd = /**HWNDWrapper*/ arrFoundWindows[i];
+		
+		Log("Closing: "+wnd.Text);
+		
+		// This will close main window of the window's process.
+		wnd.CloseMainWindow();
+		
+		// Alternative way would be bringing window to front and sending Alt+F4 to it.
+	}
+}
+
+function zWaitForMainUSDWindow()
+{
+	var count = 60;
+	var found = false;
+	while(!found && count > 0)
+	{
+		var windows = g_util.FindWindows("regex:Unified Service Desk.*", "regex:HwndWrapper.*");
+		if (windows.length > 0)
+		{
+			found = true;
+		}
+		count--;
+		Global.DoSleep(5000);
+	}
+}
+
+function zSetSeleniumDriverExecutableFolder()
+{
+	if (IsSeleniumTest())
+	{
+		var WshShell = new ActiveXObject("WScript.Shell");
+		var _processEnv = WshShell.Environment("PROCESS");
+		_processEnv("PATH") = _processEnv("PATH") + ";" + Global.GetFullPath('Profiles');
+	}
+}
+
+eval(File.IncludeOnce('%WORKDIR%/UserCrm.js'));
