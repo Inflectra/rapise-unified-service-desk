@@ -2,9 +2,9 @@
 
 if (typeof(g_usdInstance) == "undefined")
 {
-	g_usdInstance = "WebClientIE";
+	//g_usdInstance = "WebClientIE";
 	//g_usdInstance = "WebClientChrome";
-	//g_usdInstance = "ServiceClientIE";
+	g_usdInstance = "ServiceClientIE";
 	//g_usdInstance = "ChromeStandalone";
 }
 
