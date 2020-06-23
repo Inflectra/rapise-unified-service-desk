@@ -1,5 +1,8 @@
-//Put your custom functions and variables in this file
+/**
+ *  Functions for testing Microsoft Dynamics 365 Unified Service Desk
+ */
 
+// List of USD instance names
 if (typeof(g_usdInstance) == "undefined")
 {
 	g_usdInstance = "WebClientIE";
@@ -31,10 +34,15 @@ else
 		{
 			zSetSeleniumDriverExecutableFolder()
 			WebDriver.CreateDriver();
+            //zPrintChromeUrlAndTitle();
 		}
 	}
 }
 
+/**
+ * Selects browser profile and config for a given USD instance.
+ * Modify this function as needed.
+ */
 function zConfig()
 {
 	switch(g_usdInstance)
@@ -60,11 +68,18 @@ function zConfig()
 	}
 }
 
+/**
+ * Checks if we are working with Chrome hosted controls via Selenium 
+ * or attaching to IE hosted controls via Rapise native connector.
+ */
 function IsSeleniumTest()
 {
     return (typeof(WebDriver) != "undefined" && WebDriver);
 }
 
+/**
+ * Launches Unified Service Desk application.
+ */
 function USDLaunch()
 {
 	var pfFolder = Global.GetSpecialFolderPath("ProgramFilesX86");
@@ -90,6 +105,10 @@ function USDLaunch()
 	}
 }
 
+/**
+ * Logs into Unified Service Desk application. `g_usdConfigPath` points
+ * to a config file with USD instance credentials.
+ */
 function USDLogin()
 {
 	var region = Global.GetProperty('OnlineRegion', "", "%WORKDIR%/" + g_usdConfigPath);
@@ -125,6 +144,9 @@ function USDLogin()
 	Global.DoWaitFor("G_DASHBOARD", 300000);
 }
 
+/**
+ * Closes Unified Service Desk application.
+ */
 function USDClose()
 {
 	//zCloseWindowsByTitle("regex:Unified Service Desk.*");
@@ -145,6 +167,9 @@ function USDSetRichText(/**objectId*/ editor, /**string*/ text)
 	Tester.Assert("Set text into " + editor, true);
 }
 
+/**
+ *  Attaches to a Chrome hosted control based on URL/Title match or index.
+ */
 function USDSelectWindow(/**string|number*/ urlOrTitleOrIndex, /**number*/ timeout)
 {
     if (!IsSeleniumTest())
@@ -212,6 +237,24 @@ function USDSelectWindow(/**string|number*/ urlOrTitleOrIndex, /**number*/ timeo
     Tester.Assert("Chrome window not found: " + urlOrTitleorIndex, false);
 }
 
+function zPrintChromeUrlAndTitle()
+{
+    var handles = WebDriver.GetWindowHandles();
+    if (handles && handles.length)
+    {
+        for(var i = 0; i < handles.length; i++)
+        {
+            var handle = handles[i];
+            WebDriver.SwitchToWindow(handle);
+            var url = ("" + WebDriver.GetUrl()).toLowerCase();
+            var title = ("" + WebDriver.GetTitle()).toLowerCase();
+            Tester.Message('Window: ' + i);
+            Tester.Message('Url: ' + url);
+            Tester.Message('Title: ' + title);
+        }
+    }
+}
+
 function zCloseWindowsByTitle(regexTitle)
 {
 	var arrFoundWindows = g_util.FindWindows(regexTitle, 'regex:.*');
@@ -255,4 +298,5 @@ function zSetSeleniumDriverExecutableFolder()
 	}
 }
 
+// Load functions for testing Dynamics 365 for Sales (CRM)
 eval(File.IncludeOnce('%WORKDIR%/UserCrm.js'));

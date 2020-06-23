@@ -1,4 +1,6 @@
-//Put your custom functions and variables in this file
+/**
+ *  Functions for testing Microsoft Dynamics 365 for Sales (CRM)
+ */
 
 function LogAssert(/**string*/ msg)
 {
