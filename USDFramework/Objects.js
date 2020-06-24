@@ -363,5 +363,95 @@ var saved_script_objects={
 		"object_library": "UIAutomation",
 		"window_name": "Unified Service Desk for Microsoft Dynamics 365",
 		"location": "MainAgentDesktop/TitleBar/Close"
+	},
+	"G_Show_Advanced": {
+		"locations": [
+			{
+				"locator_name": "UIAutomation2",
+				"location": {
+					"location": [
+						{
+							"property": "ControlType",
+							"value": "CheckBox"
+						},
+						{
+							"property": "Name",
+							"value": "Show Advanced"
+						},
+						{
+							"property": "AutomationId",
+							"value": "cbAdvanced"
+						}
+					],
+					"window_name": "param:window_name",
+					"window_class": "regex:HwndWrapper\\[UnifiedServiceDesk\\.exe.+\\]"
+				}
+			},
+			{
+				"locator_name": "UIAutomation",
+				"location": {
+					"location": "param:location",
+					"window_name": "param:window_name",
+					"window_class": "regex:HwndWrapper\\[UnifiedServiceDesk\\.exe.+\\]"
+				}
+			}
+		],
+		"window_class": "HwndWrapper[UnifiedServiceDesk.exe;;79181d00-b19a-4968-9ce0-52f796f3e574]",
+		"object_text": "",
+		"object_role": "param:object_flavor",
+		"object_class": "param:object_flavor",
+		"version": 0,
+		"object_type": "UIACheckBox",
+		"object_flavor": "CheckBox",
+		"object_name": "G_Show_Advanced",
+		"ignore_object_name": true,
+		"object_library": "UIAutomation",
+		"window_name": "Unified Service Desk Logon",
+		"location": "Unified Service Desk Logon/CrmLoginCtrl/cbAdvanced"
+	},
+	"G_Deployment_Office_365": {
+		"locations": [
+			{
+				"locator_name": "UIAutomation2",
+				"location": {
+					"location": [
+						{
+							"property": "ControlType",
+							"value": "RadioButton"
+						},
+						{
+							"property": "Name",
+							"value": "Deployment Type: Office 365 "
+						},
+						{
+							"property": "AutomationId",
+							"value": "rbOn365"
+						}
+					],
+					"window_name": "param:window_name",
+					"window_class": "regex:HwndWrapper\\[UnifiedServiceDesk\\.exe.+\\]"
+				}
+			},
+			{
+				"locator_name": "UIAutomation",
+				"location": {
+					"location": "param:location",
+					"window_name": "param:window_name",
+					"window_class": "regex:HwndWrapper\\[UnifiedServiceDesk\\.exe.+\\]"
+				}
+			}
+		],
+		"window_class": "HwndWrapper[UnifiedServiceDesk.exe;;79181d00-b19a-4968-9ce0-52f796f3e574]",
+		"object_text": "",
+		"object_role": "param:object_class",
+		"object_class": "RadioButton",
+		"version": 0,
+		"object_type": "UIARadioButton",
+		"object_flavor": "Radio",
+		"object_name": "G_Deployment_Office_365",
+		"ignore_object_name": true,
+		"object_library": "UIAutomation",
+		"window_name": "Unified Service Desk Logon",
+		"location": "Unified Service Desk Logon/CrmLoginCtrl/rbOn365"
 	}
 };
