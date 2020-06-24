@@ -119,7 +119,8 @@ function USDLogin()
 	var commandInterval = g_commandInterval;
 	g_commandInterval = 100;
 	
-	SeS('G_Deployment_Office_365').DoSetCheck();
+	SeS('G_Deployment_Office_365').DoClick();
+	Global.DoSleep(1000);
 	SeS('G_Show_Advanced').DoSetCheck(true);
 	SeS('G_Display_List').DoSetCheck(true);
 	
