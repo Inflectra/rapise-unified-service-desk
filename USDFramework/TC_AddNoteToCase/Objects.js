@@ -256,5 +256,29 @@ var saved_script_objects={
 		"xpath": "//div[@data-lp-id='MscrmControls.TimelineWallControl.TimelineWall|notescontrol|incident-record-0']",
 		"title": "Case: Case: Delivery never arrived - Microsoft Dynamics 365",
 		"url": ""
+	},
+	"ExpanderToggle": {
+		"locations": [
+			{
+				"locator_name": "UIAutomation",
+				"location": {
+					"location": "param:location",
+					"window_name": "param:window_name",
+					"window_class": "regex:HwndWrapper\\[UnifiedServiceDesk\\.exe.+\\]"
+				}
+			}
+		],
+		"window_class": "HwndWrapper[UnifiedServiceDesk.exe;;b71fa417-97b7-438b-8be6-d29e611886a0]",
+		"object_text": "",
+		"object_role": "param:object_flavor",
+		"object_class": "param:object_flavor",
+		"version": 0,
+		"object_type": "UIAButton",
+		"object_flavor": "Button",
+		"object_name": "ExpanderToggle",
+		"ignore_object_name": true,
+		"object_library": "UIAutomation",
+		"window_name": "Unified Service Desk for Microsoft Dynamics 365",
+		"location": "MainAgentDesktop/MainWorkArea/Custom Panel/Group/ExpanderSessionDetails/HeaderSite"
 	}
 };
