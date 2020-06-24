@@ -55,3 +55,7 @@ Sets text into a rich editor. Learn more in this [KB](https://www.inflectra.com/
 ### USDSelectWindow
 
 Attaches to a Chrome hosted control based on URL/Title match or index.
+
+## See Also
+
+- [Unified Service Desk with Chrome for Hosted Controls](https://www.inflectra.com/Support/KnowledgeBase/KB540.aspx)
