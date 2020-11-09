@@ -139,8 +139,11 @@ function USDLogin()
 	SeS('G_Login').DoClick();
 	
 	Global.DoSleep(3000);
-	SeS('G_Organization', {object_name: org}).DoClick();
-	SeS('G_Login1').DoClick();
+	if (Global.DoWaitFor('G_Organization'))
+	{
+		SeS('G_Organization', {object_name: org}).DoClick();
+		SeS('G_Login1').DoClick();
+	}
 	
 	g_commandInterval = commandInterval;
 	
