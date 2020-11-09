@@ -1,0 +1,48 @@
+{
+	"USD": {
+		"window_name": "Global Objects",
+		"flavor": "GlobalObject",
+		"actions": [
+			{
+				"name": "Launch",
+				"description": "",
+				"type": "",
+				"returns": "",
+				"signature": "",
+				"paramInfo": {}
+			},
+			{
+				"name": "Login",
+				"description": "",
+				"type": "",
+				"returns": "",
+				"signature": "",
+				"paramInfo": {}
+			},
+			{
+				"name": "Close",
+				"description": "",
+				"type": "",
+				"returns": "",
+				"signature": "",
+				"paramInfo": {}
+			},
+			{
+				"name": "SetRichText",
+				"description": "",
+				"type": "",
+				"returns": "",
+				"signature": "/**objectId*/ editor, /**string*/ text",
+				"paramInfo": {}
+			},
+			{
+				"name": "SelectWindow",
+				"description": "",
+				"type": "",
+				"returns": "",
+				"signature": "/**string|number*/ urlOrTitleOrIndex, /**number*/ timeout",
+				"paramInfo": {}
+			}
+		]
+	}
+}

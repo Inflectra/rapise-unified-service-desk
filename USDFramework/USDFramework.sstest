@@ -27,6 +27,31 @@
     <FilterPath />
     <Groups>
       <TestGroup>
+        <Name>Lib</Name>
+        <IsFilterGroup>false</IsFilterGroup>
+        <FilterWildcard>*.*</FilterWildcard>
+        <FilterPath>Lib</FilterPath>
+        <Groups>
+          <TestGroup>
+            <Name>LibUSD</Name>
+            <IsFilterGroup>false</IsFilterGroup>
+            <FilterWildcard>*.*</FilterWildcard>
+            <FilterPath>LibUSD</FilterPath>
+            <Groups />
+            <TestFiles>
+              <TestFile>
+                <Path>Lib\LibUSD\LibUSD.js</Path>
+              </TestFile>
+            </TestFiles>
+          </TestGroup>
+        </Groups>
+        <TestFiles>
+          <TestFile>
+            <Path>Lib\LibUSD.jslib</Path>
+          </TestFile>
+        </TestFiles>
+      </TestGroup>
+      <TestGroup>
         <Name>Reports</Name>
         <IsFilterGroup>true</IsFilterGroup>
         <FilterWildcard>*.trp</FilterWildcard>
