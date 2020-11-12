@@ -139,7 +139,7 @@ function USDLogin()
 	SeS('G_Login').DoClick();
 	
 	Global.DoSleep(3000);
-	if (Global.DoWaitFor('G_Organization'))
+	if (Global.DoWaitFor('G_Display_List', 30000))
 	{
 		SeS('G_Organization', {object_name: org}).DoClick();
 		SeS('G_Login1').DoClick();
