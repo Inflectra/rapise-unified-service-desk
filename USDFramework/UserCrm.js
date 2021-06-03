@@ -64,7 +64,7 @@ function CrmLaunchSales()
 function CrmChangeArea(/**string*/ name)
 {
 	SeS('G_OpenAreaList').DoClick();
-	var xpath = "//li[@role='menuitemcheckbox' and normalize-space(.)='" + name + "']";
+	var xpath = "//li[contains(@role, 'menuitem') and normalize-space(.)='" + name + "']";
 	var obj = CrmFindObject(xpath);
 	if (obj)	
     {
@@ -156,7 +156,7 @@ function CrmLookupField(/**objectId*/ field, /**string*/ value)
 	{
 		obj._DoSetText(value);
 		Global.DoSleep(2000);
-		var xpath = "//ul//label/span[contains(text(),'" + value + "')]";
+		var xpath = "//ul/li//span[contains(text(),'" + value + "')]";
 		var item = CrmFindObject(xpath);
 		
 		if (!item)
