@@ -1,0 +1,88 @@
+{
+	"Crm": {
+		"window_name": "Global Objects",
+		"flavor": "GlobalObject",
+		"actions": [
+			{
+				"name": "Launch",
+				"description": "",
+				"type": "",
+				"returns": "",
+				"signature": "/**string*/ module",
+				"paramInfo": {}
+			},
+			{
+				"name": "LaunchSales",
+				"description": "",
+				"type": "",
+				"returns": "",
+				"signature": "",
+				"paramInfo": {}
+			},
+			{
+				"name": "ChangeArea",
+				"description": "",
+				"type": "",
+				"returns": "",
+				"signature": "/**string*/ name",
+				"paramInfo": {}
+			},
+			{
+				"name": "OpenEntity",
+				"description": "",
+				"type": "",
+				"returns": "",
+				"signature": "/**string*/ entity",
+				"paramInfo": {}
+			},
+			{
+				"name": "ClickButton",
+				"description": "",
+				"type": "",
+				"returns": "",
+				"signature": "/**string*/ name",
+				"paramInfo": {}
+			},
+			{
+				"name": "SelectTab",
+				"description": "",
+				"type": "",
+				"returns": "",
+				"signature": "/**string*/ name",
+				"paramInfo": {}
+			},
+			{
+				"name": "LookupField",
+				"description": "",
+				"type": "",
+				"returns": "",
+				"signature": "/**objectId*/ field, /**string*/ value",
+				"paramInfo": {}
+			},
+			{
+				"name": "ScrollTo",
+				"description": "",
+				"type": "",
+				"returns": "",
+				"signature": "/**string*/ dataId",
+				"paramInfo": {}
+			},
+			{
+				"name": "SetDate",
+				"description": "",
+				"type": "",
+				"returns": "",
+				"signature": "/**objectId*/ field, /**string*/ value",
+				"paramInfo": {}
+			},
+			{
+				"name": "SearchRecords",
+				"description": "",
+				"type": "",
+				"returns": "",
+				"signature": "/**string*/ value",
+				"paramInfo": {}
+			}
+		]
+	}
+}

@@ -21,7 +21,7 @@ var saved_script_objects={
 		"ignore_object_name": true,
 		"object_library": "DomDynamicsCrm",
 		"window_name": "Dashboards: Customer Service Dashboard - Microsoft Dynamics 365",
-		"xpath": "//table[@role='grid' and @id='gridBodyTable']",
+		"xpath": "//table[@id='gridBodyTable'  and @class='ms-crm-List-Data' ]",
 		"title": "Dashboards: Customer Service Dashboard - Microsoft Dynamics 365",
 		"url": ""
 	},
@@ -73,7 +73,7 @@ var saved_script_objects={
 		"ignore_object_name": true,
 		"object_library": "Internet Explorer HTML",
 		"window_name": "Case: Case: Delivery never arrived - Microsoft Dynamics 365",
-		"xpath": "//div[@id=\"create_module_placeholder\"]",
+		"xpath": "//button[@id=\"create_module_placeholder\"]",
 		"title": "Case: Case: Delivery never arrived - Microsoft Dynamics 365",
 		"url": ""
 	},
@@ -175,7 +175,7 @@ var saved_script_objects={
 		"ignore_object_name": true,
 		"object_library": "Internet Explorer HTML",
 		"window_name": "Case: Case: Delivery never arrived - Microsoft Dynamics 365",
-		"xpath": "//button[@type='button' and @id='create_note_add_btn']",
+		"xpath": "//button[@type='button' and @data-id='notescontrol-undefinedsave_button']",
 		"title": "Case: Case: Delivery never arrived - Microsoft Dynamics 365",
 		"url": ""
 	},

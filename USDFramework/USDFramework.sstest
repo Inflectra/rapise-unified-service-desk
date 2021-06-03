@@ -11,6 +11,7 @@
   <ObjectLookupAttempts>30</ObjectLookupAttempts>
   <ObjectLookupAttemptInterval>300</ObjectLookupAttemptInterval>
   <ShowReport>true</ShowReport>
+  <JSEngineType>Default</JSEngineType>
   <BeautifySavedObjects>true</BeautifySavedObjects>
   <SaveRecordingScreenshots>false</SaveRecordingScreenshots>
   <SavePlaybackScreenshots>false</SavePlaybackScreenshots>
@@ -33,6 +34,18 @@
         <FilterPath>Lib</FilterPath>
         <Groups>
           <TestGroup>
+            <Name>LibDynamics365Crm</Name>
+            <IsFilterGroup>false</IsFilterGroup>
+            <FilterWildcard>*.*</FilterWildcard>
+            <FilterPath>LibDynamics365Crm</FilterPath>
+            <Groups />
+            <TestFiles>
+              <TestFile>
+                <Path>Lib\LibDynamics365Crm\LibDynamics365Crm.js</Path>
+              </TestFile>
+            </TestFiles>
+          </TestGroup>
+          <TestGroup>
             <Name>LibUSD</Name>
             <IsFilterGroup>false</IsFilterGroup>
             <FilterWildcard>*.*</FilterWildcard>
@@ -46,6 +59,9 @@
           </TestGroup>
         </Groups>
         <TestFiles>
+          <TestFile>
+            <Path>Lib\LibDynamics365Crm.jslib</Path>
+          </TestFile>
           <TestFile>
             <Path>Lib\LibUSD.jslib</Path>
           </TestFile>
