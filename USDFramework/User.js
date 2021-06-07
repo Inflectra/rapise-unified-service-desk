@@ -20,8 +20,11 @@ if (!g_recording)
 		Global.DoLoadObjects('%WORKDIR%/Objects.js');
 		Global.DoLoadObjects('%WORKDIR%/ObjectsCrm.js');
 		Navigator.EnsureVisibleVerticalAlignment = "center";
-		zSetSeleniumDriverExecutableFolder();
-		//WebDriver.CreateDriver();
+		if (IsSeleniumTest())
+		{
+			zSetSeleniumDriverExecutableFolder();
+			//WebDriver.CreateDriver();
+		}
 	}
 }
 else
@@ -29,7 +32,10 @@ else
 	TestPrepare = function()
 	{
 		g_recordUrls = false;
-		g_UIAutomationWrapper.DeepPointTracking(true);
+		if (typeof(g_UIAutomationWrapper) != "undefined")
+		{
+			g_UIAutomationWrapper.DeepPointTracking(true);
+		}
 		if (IsSeleniumTest())
 		{
 			zSetSeleniumDriverExecutableFolder()
